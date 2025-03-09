@@ -5,9 +5,10 @@ from src.htmlnode import HTMLNode
 
 class LeafNode(HTMLNode):
     def __init__(self,tag, value, props=None):
-        super().__init__(tag, value, children=None, props=props)
+        super().__init__(tag, value, None, props=props)
+        
         if self.children is not None:
-            raise ValueError("LeafNode cannot have children attribute")
+            raise AttributeError("LeafNode cannot have children attribute")
     
     def to_html(self):
         if self.value is None:
