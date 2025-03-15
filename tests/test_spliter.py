@@ -1,6 +1,6 @@
 import unittest
 
-from src.spliter import split_nodes_delimiter
+from src.spliter import split_nodes_delimiter, split_nodes_image, split_nodes_link
 from src.textnode import TextNode, TextType
 
 class TestSpliter(unittest.TestCase):
@@ -53,7 +53,42 @@ class TestSpliter(unittest.TestCase):
                 TextNode("italic word", TextType.ITALIC),
             ]
         )
+
+    def test_split_images(self):
+        node = TextNode(
+            "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)",
+            TextType.TEXT,
+        )
+        new_nodes = split_nodes_image([node])
+        self.assertListEqual(
+            [
+                TextNode("This is text with an ", TextType.TEXT),
+                TextNode("image", TextType.IMAGE, "https://i.imgur.com/zjjcJKZ.png"),
+                TextNode(" and another ", TextType.TEXT),
+                TextNode(
+                    "second image", TextType.IMAGE, "https://i.imgur.com/3elNhQu.png"
+                ),
+            ],
+            new_nodes,
+        )
         
+    def test_split_links(self):
+        node = TextNode(
+            "This is text with an [link](https://www.facebook.com) and another [second link](http://www.google.com)",
+            TextType.TEXT,
+        )
+        new_nodes = split_nodes_link([node])
+        self.assertListEqual(
+            [
+                TextNode("This is text with an ", TextType.TEXT),
+                TextNode("link", TextType.LINK, "https://www.facebook.com"),
+                TextNode(" and another ", TextType.TEXT),
+                TextNode(
+                    "second link", TextType.LINK, "http://www.google.com"
+                ),
+            ],
+            new_nodes,
+        )
 
 if __name__ == "__main__":
     unittest.main()
