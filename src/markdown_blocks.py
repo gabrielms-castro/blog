@@ -73,7 +73,7 @@ def block_to_html_node(block):
         return code_to_html_node(block)
     
     if block_type == BlockType.QUOTE:
-        return quote_to_html_node(block):
+        return quote_to_html_node(block)
     
     if block_type == BlockType.UNORDERED_LIST:
         return unordered_list_to_html_node(block)
