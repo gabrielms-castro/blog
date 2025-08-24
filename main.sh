@@ -1,1 +1,1 @@
-python3 -m src.spliter
+python3 -m src.main
