@@ -21,5 +21,6 @@ def generate_page(from_path, template_path, dest_path):
     template_content = template_content.replace("{{ Title }}", title)
     template_content = template_content.replace("{{ Content }}", html)
     
+    create_dir(os.path.dirname(dest_path))
     with open(dest_path, "w", encoding="utf-8") as f:
         f.write(template_content)
