@@ -107,19 +107,40 @@ def heading_to_html_node(block):
     return ParentNode(f"h{level}", children)
 
 def code_to_html_node(block):
-    if not block.startswith("```") and not block.endswith("```"):
+    if not block.startswith("```") or not block.endswith("```"):
         raise ValueError("Code block must start and end with ```")
     text = block[4:-3]
-    raw_text_node = TextNode(text, TextType.CODE)
+    raw_text_node = TextNode(text, TextType.TEXT)
     child = text_node_to_html_node(raw_text_node)
     code = ParentNode("code", [child])
     return ParentNode("pre", [code])
-    
+        
 def quote_to_html_node(block):
-    ...
+    lines = block.split("\n")
+    new_lines = []
+    for line in lines:
+        if not line.startswith(">"):
+            raise ValueError("invalid quote block")
+        new_lines.append(line.lstrip(">").strip())
+    content = " ".join(new_lines)
+    children = text_to_children(content)
+    return ParentNode("blockquote", children)
 
 def unordered_list_to_html_node(block):
-    ...
+    items = block.split("\n")
+    html_items = []
+    for item in items:
+        text = item[2:]
+        children = text_to_children(text)
+        html_items.append(ParentNode("li", children))
+    return ParentNode("ul", html_items)
 
 def ordered_list_to_html_node(block):
-    ...
+    items = block.split("\n")
+    html_items = []
+    for item in items:
+        text = item[3:]
+        children = text_to_children(text)
+        html_items.append(ParentNode("li", children))
+    return ParentNode("ol", html_items)
+    
