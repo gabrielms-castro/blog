@@ -63,26 +63,22 @@ def markdown_to_html_node(markdown):
 def block_to_html_node(block):
     block_type = block_to_block_type(block)
     
-    if block_type == BlockType.PARAGRAPH:
-        return paragraph_to_html_node(block)
+    match block_type:
+        case BlockType.PARAGRAPH:
+            return paragraph_to_html_node(block)
+        case BlockType.HEADING:
+            return heading_to_html_node(block)
+        case BlockType.CODE:
+            return code_to_html_node(block)
+        case BlockType.QUOTE:
+            return quote_to_html_node(block)
+        case BlockType.UNORDERED_LIST:
+            return unordered_list_to_html_node(block)
+        case BlockType.ORDERED_LIST:
+            return ordered_list_to_html_node(block)
+        case _:
+            raise ValueError(f"Unknown block type")
     
-    if block_type == BlockType.HEADING:
-        return heading_to_html_node(block)
-    
-    if block_type == BlockType.CODE:
-        return code_to_html_node(block)
-    
-    if block_type == BlockType.QUOTE:
-        return quote_to_html_node(block)
-    
-    if block_type == BlockType.UNORDERED_LIST:
-        return unordered_list_to_html_node(block)
-    
-    if block_type == BlockType.ORDERED_LIST:
-        return ordered_list_to_html_node(block)
-    
-    raise ValueError(f"Unknown block type")
-
 def text_to_children(text):
     text_nodes = text_to_textnodes(text)
     children = []
