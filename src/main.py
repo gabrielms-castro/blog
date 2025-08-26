@@ -7,7 +7,7 @@ from src.textnode import TextNode, TextType
 def main():
     basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
     print("Copying static files...")
-    static_to_public()
+    static_to_public(dest="docs", src="static")
     
     print("Generating pages...")
     generate_pages_recursive(
