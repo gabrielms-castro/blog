@@ -6,7 +6,7 @@ from src.markdown_blocks import markdown_to_html_node
 def create_dir(path):
     os.makedirs(path, exist_ok=True)
 
-def generate_page(from_path, template_path, dest_path):
+def generate_page(from_path, template_path, dest_path, basepath):
     
     with open(from_path, "r") as f:
         markdown_content = f.read()
@@ -20,6 +20,8 @@ def generate_page(from_path, template_path, dest_path):
     
     template_content = template_content.replace("{{ Title }}", title)
     template_content = template_content.replace("{{ Content }}", html)
+    template_content = template_content.replace("href=\"/", f"href=\"{basepath}\"")
+    template_content = template_content.replace('src=\"/', f'src=\"{basepath}\"')
     
     create_dir(os.path.dirname(dest_path))
     with open(dest_path, "w", encoding="utf-8") as f:
