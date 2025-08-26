@@ -13,7 +13,8 @@ def main():
     generate_pages_recursive(
         dir_path_content="content",
         template_path="./template.html",
-        dest_dir_path="docs"
+        dest_dir_path="docs",
+        basepath=basepath
     )
     
 if __name__ == "__main__":
