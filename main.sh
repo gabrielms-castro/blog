@@ -1,2 +1,2 @@
 python3 -m src.main
-cd public && python3 -m http.server 8000
+cd docs && python3 -m http.server 8000
