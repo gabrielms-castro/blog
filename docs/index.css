@@ -121,7 +121,7 @@ body {
   
   * {
     scrollbar-width: thin;
-    scrollbar-color: #b9bac0 #ffffff ;
+    scrollbar-color: #b9bac0 #ffffff;
   }
   
   ::-webkit-scrollbar-corner {
