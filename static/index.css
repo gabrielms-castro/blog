@@ -1,13 +1,12 @@
+:root {
+  --primary-color: #2d2d2d;
+}
 body {
-    background-color: #ffffff;
-    color: #29323d;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background: var(--primary-color);
+    color: #f4f4f4;
+    font-family: 'Athiti', sans-serif;
     line-height: 1.7;
     margin: 0;
-    padding: 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
   }
   
   b {
@@ -21,19 +20,19 @@ body {
   }
   
   h1 {
-    font-size: 2em;
-  }
-  
-  h2 {
     font-size: 1.75em;
   }
   
-  h3 {
+  h2 {
     font-size: 1.5em;
   }
   
+  h3 {
+    font-size: 1.25em;
+  }
+  
   h4, h5, h6 {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   
   a {
@@ -129,11 +128,11 @@ body {
   }
 
   .lowbar {
-    position: static; /* stays visible near bottom when scrolling past footer area */
-    bottom: 0;
-    background: #6371f1;
+    position: static; 
+    background: var(--primary-color);
     color: #fff;
     font-size: 14px;
+    border-top: 1px solid #888888;
   }
 
   .lowbar-inner {
@@ -157,8 +156,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #6371f1;
+    background: var(--primary-color);
     color: #fff;
+    width: 100dvw;
+    border-bottom: 1px solid #888888;
   } 
 
   .navbar h1 {
@@ -166,18 +167,19 @@ body {
   }
 
   .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
+    /* max-width: 1100px;
+    margin: 0 auto; */
     padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    /* gap: 12px; */
   }
 
   .nav-links {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 16px;
   }
 
@@ -220,10 +222,17 @@ body {
   .social {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-left: 8px;
+    justify-content: space-between;
+    gap: 12px;
   }
 
   .social a:hover {
     color: #8195f8;
+  }
+
+  article {
+    min-height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
