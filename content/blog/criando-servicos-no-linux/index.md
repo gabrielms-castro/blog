@@ -77,6 +77,7 @@ Conteúdo do arquivo:
 Description=Meu Servico de Exemplo
 Documentation=https://exemplo.com/docs
 After=network.target
+
 [Service]
 Type=simple
 User=meu-servico
@@ -84,6 +85,7 @@ Group=meu-servico
 ExecStart=/opt/meu-servico/meu-servico
 Restart=on-failure
 RestartSec=5s
+
 [Install]
 WantedBy=multi-user.target
 ```
