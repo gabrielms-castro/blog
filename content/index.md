@@ -1,9 +1,7 @@
 # Blog
 
-Software engineer writing about technology, philosophy, and the occasional dive into Middle-earth.
+Desenvolvedor Back-end em São Paulo. Resolvo problemas reais com Python e Java. Por aqui você encontra conteúdo sobre tecnologia, IA, DevOps, filosofia e muito mais.
 
-## Latest posts
+## 2026 - Março
 
-- [Why Glorfindel is More Impressive than Legolas](/blog/glorfindel)
-- [Why Tom Bombadil Was a Mistake](/blog/tom)
-- [The Unparalleled Majesty of "The Lord of the Rings"](/blog/majesty)
+- [Criando serviços no Linux](/blog/criando-servicos-no-linux)
