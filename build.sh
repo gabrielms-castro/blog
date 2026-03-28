@@ -1,1 +1,1 @@
-python3 -m src.main "/blog/"
+python3 -m src.main
