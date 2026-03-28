@@ -1,3 +1,7 @@
+---
+tags: lotr, analysis, fantasy, controversial
+---
+
 # Why Tom Bombadil Was a Mistake
 
 [< Back Home](/)

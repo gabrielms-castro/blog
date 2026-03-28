@@ -1,3 +1,7 @@
+---
+tags: lotr, elves, analysis, fantasy
+---
+
 # Why Glorfindel is More Impressive than Legolas
 
 [< Back Home](/)

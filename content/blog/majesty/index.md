@@ -1,3 +1,7 @@
+---
+tags: lotr, review, fantasy, books
+---
+
 # The Unparalleled Majesty of "The Lord of the Rings"
 
 [< Back Home](/)
