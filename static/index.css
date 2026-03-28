@@ -218,7 +218,7 @@ blockquote p { margin: 0; }
 /* ── Article / Content ─────────────────────────── */
 
 article {
-  max-width: 720px;
+  max-width: 860px;
   width: 100%;
   margin: 0 auto;
   padding: 3rem 1.5rem 4rem;
