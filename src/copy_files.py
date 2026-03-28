@@ -19,8 +19,4 @@ def static_to_public(dest="public", src="static"):
             shutil.copy(src=abs_path_item, dst=destination_absolute_path)
         
         if os.path.isdir(abs_path_item):
-            
-            if os.path.isfile(abs_path_item):
-                shutil.copy(src=abs_path_item, dst=destination_absolute_path)
-            
             static_to_public(src=abs_path_item, dest=destination_absolute_path / item)
