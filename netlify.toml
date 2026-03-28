@@ -1,0 +1,3 @@
+[build]
+  command = "python3 -m src.main"
+  publish = "docs"
