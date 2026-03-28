@@ -14,14 +14,28 @@ class BlockType(Enum):
     ORDERED_LIST = "ordered_list"
 
 def markdown_to_blocks(markdown: str) -> list[str]:
-    blocks = markdown.split("\n\n")
-    filtered_blocks = []
-    for block in blocks:
-        if block == "":
-            continue
-        block = block.strip()
-        filtered_blocks.append(block)
-    return filtered_blocks
+    blocks = []
+    current_lines = []
+    in_fence = False
+
+    for line in markdown.split("\n"):
+        if line.startswith("```"):
+            in_fence = not in_fence
+
+        if line == "" and not in_fence:
+            block = "\n".join(current_lines).strip()
+            if block:
+                blocks.append(block)
+            current_lines = []
+        else:
+            current_lines.append(line)
+
+    if current_lines:
+        block = "\n".join(current_lines).strip()
+        if block:
+            blocks.append(block)
+
+    return blocks
 
     
 def block_to_block_type(block: str) -> BlockType:
@@ -56,7 +70,11 @@ def markdown_to_html_node(markdown):
     blocks = markdown_to_blocks(markdown)
     children = []
     for block in blocks:
-        html_node = block_to_html_node(block)
+        try:
+            html_node = block_to_html_node(block)
+        except Exception as e:
+            preview = block[:120].replace("\n", "\\n")
+            raise ValueError(f"Error parsing block: '{preview}'\n  Caused by: {e}") from e
         children.append(html_node)
     return ParentNode("div", children)
         
