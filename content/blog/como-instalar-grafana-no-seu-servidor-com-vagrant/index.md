@@ -21,7 +21,6 @@ Para este guia, utilizaremos o Vagrant para gerenciar nossa máquina virtual. Ce
 **Dica para usuários Windows:** Se você utiliza WSL, recomendo instalar o Vagrant e o VirtualBox diretamente no Windows para facilitar a comunicação entre as ferramentas.
 
 
-
 ## Criando e Configurando a VM
 
 ### 1. Prepare o diretório do projeto
@@ -54,20 +53,30 @@ config.vm.network "public_network"
 
 *Isso irá redirecionar a porta 3000 da VM para o seu localhost e colocar a VM na sua rede local.*
 
+**OBS:** Em um servidor real (ex: RHEL/CentOS), ao invés do port forwarding do Vagrant, você expõe a porta diretamente pelo firewall do sistema com o firewall-cmd:
+
+```bash
+sudo firewall-cmd --permanent --add-port=3000/tcp
+sudo firewall-cmd --reload
+```
+
+Isso libera a porta 3000 no firewall para que a aplicação seja acessível na rede.
+
 ### 4. Subindo o servidor
 
 Agora, inicie a máquina virtual:
+
 ```bash
 vagrant up
 ```
+
 **Nota:** O Vagrant pode solicitar que você escolha uma interface de rede. Geralmente, a opção **1** (sua conexão local ativa) é a correta.
 
 Após o término do processo, acesse a VM via SSH:
+
 ```bash
 vagrant ssh
 ```
-
-
 
 ## Instalando o Grafana
 
@@ -92,7 +101,6 @@ sudo systemctl status grafana-server
 Se o status aparecer como `active (running)`, a instalação foi um sucesso!
 
 
-
 ## Acessando a Interface Web
 
 Agora você pode acessar o painel do Grafana diretamente do navegador da sua máquina física através do endereço:
@@ -101,7 +109,6 @@ Agora você pode acessar o painel do Grafana diretamente do navegador da sua má
 
 *   **Usuário padrão:** admin
 *   **Senha padrão:** admin
-
 
 
 ## Conclusão
