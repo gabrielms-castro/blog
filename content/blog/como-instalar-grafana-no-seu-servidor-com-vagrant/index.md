@@ -38,6 +38,7 @@ cd aula-grafana
 Utilizaremos uma box do **CentOS 7** para este estudo. Você pode explorar outras opções no [Vagrant Boxes](https://portal.cloud.hashicorp.com/vagrant/discover).
 
 Execute o comando para inicializar o projeto:
+
 ```bash
 vagrant init centos/7
 ```
@@ -46,10 +47,11 @@ vagrant init centos/7
 
 Precisamos ajustar o arquivo `Vagrantfile` para permitir o acesso externo à aplicação. Abra o arquivo com seu editor de preferência (ex: `vim` ou `Notepad`) e adicione as seguintes configurações de rede:
 
-```ruby
+```bash
 config.vm.network "forwarded_port", guest: 3000, host: 3000, host_ip: "127.0.0.1"
 config.vm.network "public_network"
 ```
+
 *Isso irá redirecionar a porta 3000 da VM para o seu localhost e colocar a VM na sua rede local.*
 
 ### 4. Subindo o servidor
