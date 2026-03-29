@@ -20,7 +20,7 @@ Para este guia, utilizaremos o Vagrant para gerenciar nossa máquina virtual. Ce
 
 **Dica para usuários Windows:** Se você utiliza WSL, recomendo instalar o Vagrant e o VirtualBox diretamente no Windows para facilitar a comunicação entre as ferramentas.
 
----
+
 
 ## Criando e Configurando a VM
 
@@ -61,7 +61,7 @@ Após o término do processo, acesse a VM via SSH:
 vagrant ssh
 ```
 
----
+
 
 ## Instalando o Grafana
 
@@ -84,18 +84,18 @@ sudo systemctl status grafana-server
 
 Se o status aparecer como `active (running)`, a instalação foi um sucesso!
 
----
+
 
 ## Acessando a Interface Web
 
 Agora você pode acessar o painel do Grafana diretamente do navegador da sua máquina física através do endereço:
 
-👉 **[http://127.0.0.1:3000](http://127.0.0.1:3000)**
+**[http://127.0.0.1:3000](http://127.0.0.1:3000)**
 
 *   **Usuário padrão:** admin
 *   **Senha padrão:** admin
 
----
+
 
 ## Conclusão
 
