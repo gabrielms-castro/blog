@@ -102,3 +102,6 @@ Agora você pode acessar o painel do Grafana diretamente do navegador da sua má
 Instalar o Grafana é um processo direto, mas que abre portas para um controle muito maior sobre sua infraestrutura. Ter visibilidade do que acontece no servidor evita surpresas e permite agir antes que o problema afete o usuário final.
 
 Nos próximos artigos, pretendo mostrar como configurar o **Prometheus** e utilizar **Exporters** para enviar dados reais para este painel. Até a próxima!
+
+
+*Escrito por Gabriel Castro - 29/03/2026*

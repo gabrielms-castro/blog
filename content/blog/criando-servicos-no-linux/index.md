@@ -194,3 +194,6 @@ O fluxo completo para subir um serviço de forma segura no Linux:
 8. Monitorar com `journalctl -u nome -f`
 
 Seguindo esse fluxo, o serviço roda com o mínimo de privilégios necessários, reinicia sozinho em caso de falha e seus logs ficam centralizados no journal do sistema.
+
+
+*Escrito por Gabriel Castro - 28/03/2026*
