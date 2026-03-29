@@ -25,6 +25,7 @@ Para este guia, utilizaremos o Vagrant para gerenciar nossa máquina virtual. Ce
 ## Criando e Configurando a VM
 
 ### 1. Prepare o diretório do projeto
+
 Crie uma pasta dedicada para os arquivos da sua máquina virtual:
 
 ```bash
@@ -33,6 +34,7 @@ cd aula-grafana
 ```
 
 ### 2. Instanciando a VM com Vagrant
+
 Utilizaremos uma box do **CentOS 7** para este estudo. Você pode explorar outras opções no [Vagrant Boxes](https://portal.cloud.hashicorp.com/vagrant/discover).
 
 Execute o comando para inicializar o projeto:
@@ -41,6 +43,7 @@ vagrant init centos/7
 ```
 
 ### 3. Editando o Vagrantfile
+
 Precisamos ajustar o arquivo `Vagrantfile` para permitir o acesso externo à aplicação. Abra o arquivo com seu editor de preferência (ex: `vim` ou `Notepad`) e adicione as seguintes configurações de rede:
 
 ```ruby
@@ -50,6 +53,7 @@ config.vm.network "public_network"
 *Isso irá redirecionar a porta 3000 da VM para o seu localhost e colocar a VM na sua rede local.*
 
 ### 4. Subindo o servidor
+
 Agora, inicie a máquina virtual:
 ```bash
 vagrant up
@@ -72,6 +76,7 @@ sudo yum install -y https://dl.grafana.com/grafana-enterprise/release/12.4.2/gra
 ```
 
 ### Gerenciando o serviço
+
 Após a instalação, utilize o `systemctl` para habilitar e iniciar o servidor do Grafana:
 
 ```bash
