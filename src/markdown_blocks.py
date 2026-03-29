@@ -2,7 +2,7 @@ from enum import Enum
 import re
 
 from src.htmlnode import ParentNode
-from src.inline_markdown import text_to_textnodes
+from src.inline_markdown import text_to_textnodes, split_nodes_image, split_nodes_link
 from src.textnode import TextNode, TextType, text_node_to_html_node
 
 class BlockType(Enum):
@@ -50,9 +50,9 @@ def block_to_block_type(block: str) -> BlockType:
     if block.startswith(">"):
         return BlockType.QUOTE
     
-    if block.startswith("- "):
+    if block.startswith("- ") or block.startswith("* "):
         for line in lines:
-            if not line.startswith("- "):
+            if not line.startswith("- ") and not line.startswith("* "):
                 return BlockType.PARAGRAPH
         return BlockType.UNORDERED_LIST
 
@@ -97,12 +97,22 @@ def block_to_html_node(block):
         case _:
             raise ValueError(f"Unknown block type")
     
+def _inline_links(text):
+    nodes = [TextNode(text, TextType.TEXT)]
+    nodes = split_nodes_image(nodes)
+    nodes = split_nodes_link(nodes)
+    return [text_node_to_html_node(n) for n in nodes]
+
 def text_to_children(text):
     text_nodes = text_to_textnodes(text)
     children = []
     for text_node in text_nodes:
-        html_node = text_node_to_html_node(text_node)
-        children.append(html_node)
+        if text_node.text_type == TextType.BOLD:
+            children.append(ParentNode("b", _inline_links(text_node.text)))
+        elif text_node.text_type == TextType.ITALIC:
+            children.append(ParentNode("i", _inline_links(text_node.text)))
+        else:
+            children.append(text_node_to_html_node(text_node))
     return children
 
 def paragraph_to_html_node(block):
@@ -148,7 +158,7 @@ def unordered_list_to_html_node(block):
     items = block.split("\n")
     html_items = []
     for item in items:
-        text = item[2:]
+        text = item[1:].lstrip()
         children = text_to_children(text)
         html_items.append(ParentNode("li", children))
     return ParentNode("ul", html_items)
