@@ -62,9 +62,10 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, bas
                 basepath=basepath
             )
 
+            set_title_or_home = meta['title'] if meta['title'] else 'Inicio'
             rel = str(actual_dir_path_content).replace(content_root, '').replace('\\', '/')
             url = rel.replace('/index.md', '/').replace('.md', '/')
-            posts.append({'title': meta['title'], 'url': url, 'tags': meta['tags']})
+            posts.append({'title': set_title_or_home, 'url': url, 'tags': meta['tags']})
 
         if os.path.isdir(actual_dir_path_content):
             posts += generate_pages_recursive(

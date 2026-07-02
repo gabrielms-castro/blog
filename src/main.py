@@ -3,8 +3,8 @@ import sys
 
 from src.config import BASE_DIR
 from src.copy_files import static_to_public
-from src.generate_page import generate_page, generate_pages_recursive
-from src.textnode import TextNode, TextType
+from src.generate_page import generate_pages_recursive
+
 
 def main():
     basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
