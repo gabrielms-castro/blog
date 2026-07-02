@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta property="og:title" content="Blog | Gabriel Castro">
+    <meta property="og:title" content="Gabriel Castro">
     <meta property="og:description" content="Artigos sobre inteligência artificial, desenvolvimento, arquitetura de software, carreira, estudos e algumas coisas aleatórias.">
     <meta property="og:image" content="https://gabrielcastrodev.netlify.app/images/cover.png">
     <meta property="og:url" content="https://gabrielcastrodev.netlify.app/">
@@ -12,7 +12,9 @@
 
     <title>{{ Title }} | Gabriel Castro</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="/index.css" rel="stylesheet" />
     
     <script src="/search.js" defer></script>
@@ -22,13 +24,14 @@
     <div class="nav-inner">
 
       <div class="brand">
-        <h1>Gabriel<span> Castro</span></h1>
-        
+        <a href="/">
+          <h1>Gabriel<span> Castro</span></h1>
+        </a>
+
       </div>
 
       <div class="nav-links" aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/sobre">About</a>
+        <a href="/posts">Postagens</a>
 
         <div class="search-wrap">
           <input type="search" id="search-input" class="search-input" placeholder="Search..." autocomplete="off" aria-label="Search posts" />
