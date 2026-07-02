@@ -25,7 +25,7 @@ def generate_page(from_path, template_path, dest_path, basepath):
     template_content = template_content.replace('href="/', f'href="{basepath}')
     template_content = template_content.replace('src="/', f'src="{basepath}')
 
-    template_content = template_content.replace("{{ Title }}", title if title else "")
+    template_content = template_content.replace("{{ Title }}", title + " | " if title else "")
     template_content = template_content.replace("{{ Content }}", html)
 
     if tags:
