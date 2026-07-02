@@ -2,5 +2,5 @@
 
 ## 2026 - Março
 
-- [Como Instalar o Grafana no seu Servidor com Vagrant](/blog/como-instalar-grafana-no-seu-servidor-com-vagrant)
+- [Instalando o Grafana no Linux](/blog/instalando-o-grafana-no-linux)
 - [Criando serviços no Linux](/blog/criando-servicos-no-linux)

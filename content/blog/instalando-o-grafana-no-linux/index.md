@@ -1,9 +1,9 @@
 ---
-title: Como Instalar o Grafana no seu Servidor com Vagrant
+title: Instalando o Grafana no Linux
 tags: linux, devops, grafana, observabilidade, vagrant
 ---
 
-# Como Instalar o Grafana no seu Servidor com Vagrant
+# Instalando o Grafana no Linux
 
 O **Grafana** é uma plataforma indispensável para quem precisa monitorar e visualizar dados em tempo real. Com ele, você pode analisar métricas de recursos computacionais, bancos de dados e muito mais, tudo através de dashboards intuitivos.
 
