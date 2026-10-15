@@ -1,4 +1,5 @@
 from enum import Enum
+import html
 
 from src.htmlnode import LeafNode
 
@@ -28,19 +29,19 @@ class TextNode:
 
 def text_node_to_html_node(text_node):
     if TextType.TEXT == text_node.text_type:
-        return LeafNode(None, text_node.text)
+        return LeafNode(None, html.escape(text_node.text, quote=False))
     
     if TextType.BOLD == text_node.text_type:
-        return LeafNode("b", text_node.text)
+        return LeafNode("b", html.escape(text_node.text, quote=False))
     
     if TextType.ITALIC == text_node.text_type:
-        return LeafNode("i", text_node.text)
+        return LeafNode("i", html.escape(text_node.text, quote=False))
 
     if TextType.CODE == text_node.text_type:
-        return LeafNode("code", text_node.text)
+        return LeafNode("code", html.escape(text_node.text, quote=False))
 
     if TextType.LINK == text_node.text_type:
-        return LeafNode("a", text_node.text, {"href":text_node.url})
+        return LeafNode("a", html.escape(text_node.text, quote=False), {"href":text_node.url})
     
     if TextType.IMAGE == text_node.text_type:
         return LeafNode("img", "", {"src": text_node.url, "alt":text_node.text})

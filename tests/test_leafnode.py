@@ -81,7 +81,16 @@ class TestLeafNode(unittest.TestCase):
             node.to_html(),
             "<h2><b>Bold text</b>Normal text<i>italic text</i>Normal text</h2>",
         )
-        
+
+    def test_to_html_void_tags(self):
+        img = LeafNode("img", "", {"src": "/a.png", "alt": "A"}).to_html()
+        self.assertEqual(img, '<img src="/a.png" alt="A">')
+        self.assertEqual(LeafNode("hr", "").to_html(), "<hr>")
+
+    def test_props_are_escaped(self):
+        node = LeafNode("img", "", {"alt": 'say "hi" & <bye>'}).to_html()
+        self.assertEqual(node, '<img alt="say &quot;hi&quot; &amp; &lt;bye&gt;">')
+
     
 
 if __name__ == "__main__":

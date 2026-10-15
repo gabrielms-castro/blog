@@ -1,3 +1,7 @@
+import html
+
+VOID_TAGS = {"img", "hr", "br"}
+
 class HTMLNode:
     def __init__(self, tag=None, value=None, children=None, props=None):
         self.tag = tag              # A string representing the HTML tag name (e.g. "p", "a", "h1", etc.)
@@ -14,7 +18,7 @@ class HTMLNode:
         
         props_html = ""
         for prop in self.props:
-            props_html += f' {prop}="{self.props[prop]}"'
+            props_html += f' {prop}="{html.escape(str(self.props[prop]), quote=True)}"'
         return props_html
     
     def __repr__(self):
@@ -58,5 +62,8 @@ class LeafNode(HTMLNode):
             return str(self.value)
         
         props_html = self.props_to_html()
-        
+
+        if self.tag in VOID_TAGS:
+            return f"<{self.tag}{props_html}>"
+
         return f"<{self.tag}{props_html}>{self.value}</{self.tag}>"

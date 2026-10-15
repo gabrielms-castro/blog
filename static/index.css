@@ -152,6 +152,33 @@ blockquote {
 
 blockquote p { margin: 0; }
 
+/* ── Table ─────────────────────────────────────── */
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1.75rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95em;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--surface);
+  font-weight: 600;
+}
+
+tbody tr:nth-child(even) { background: var(--border-soft); }
+
 /* ── Navbar ────────────────────────────────────── */
 
 .navbar {
